@@ -1,0 +1,125 @@
+
+
+#include <16F876.h>
+#device ICD=TRUE
+#fuses HS,NOLVP,NOWDT,PUT
+//#include <recept_RC5.h>
+#use delay(clock=20000000)
+
+#define led_verte PIN_A5
+#define led_rouge PIN_B5
+#define led_jaune PIN_B4
+#define bouton PIN_A4
+
+
+
+
+//declaration de variables
+int1 var_test,nl,x,y,testbit;
+int var,i,n,typ,cod_touch;
+
+
+int TAB[14];
+
+//declaration de la fonction interruption
+#int_ext
+void ext_isr()
+{
+var=0;
+}
+#use i2c (master,sda=pin_c4,scl=pin_c3,slow,force_hw)
+#use rs232 (baud = 19200 , xmit = PIN_D6 , rcv = PIN_D7)
+
+void initelcd()
+{
+printf("%c",0xa0);
+          delay_ms(40);
+
+         printf("%c%c",0xa3,0xa1);
+          delay_ms(20);
+          printf("%c%c",0xa3,0x0C);
+          delay_ms(20);
+}
+
+
+
+
+//debut du programme
+main()
+{
+      n=0;
+      i=0;
+      var=1;
+      initelcd();
+
+      output_low(led_verte);
+      //enable_interrupts(global); //autorise les interruptions
+      //enable_interrupts(int_ext); //demasque EXT INT
+      //ext_int_edge(H_to_L); //front descendant de EXT INT
+      //set_tris_c(0x00);
+      setup_ccp1(CCP_PWM);
+      setup_timer_2(T2_DIV_BY_16,10,1);
+      while(true) //boucle infinie
+      {
+           /* while(var==1);
+            output_low(led_rouge);
+            nl=1;
+            n=0;
+            TAB[0]=nl;
+            delay_us(440);
+            delay_us(889);
+
+            var_test=1;
+            while(n++<13)
+             {
+            x=input(pin_b1);
+            //x=0;
+            delay_us(880);
+            y=input(pin_b1);
+            //y=1;
+            //testbit=recept_RC5(var_test,x,y);
+            if(testbit==1)
+            TAB[n]= nl;
+            else
+              {
+              nl=!nl;
+              TAB[n]= nl;
+              var_test=!var_test;
+              }
+            delay_us(880);
+             }
+             i=0;
+             n=0;
+            output_high(led_rouge);
+            typ=TAB[3]*16+TAB[4]*8+TAB[5]*4+TAB[6]*2+TAB[7];
+            cod_touch=TAB[8]*32+TAB[9]*16+TAB[10]*8+TAB[11]*4+TAB[12]*2+TAB[13];
+
+          printf("%c%c%c",0xa1,0,0);
+          printf("%c%s%c",0xa2,"        ",0);
+          printf("%c%c%c",0xa1,0,1);
+          printf("%c%s%c",0xa2,"        ",0);
+
+
+          printf("%c%c%c",0xa1,0,0);
+          printf("%c%s%c",0xa2,"type",0);
+          printf("%c%c%c",0xa1,4,0);
+          printf("%c%d%c",0xa2,typ,0);
+          printf("%c%c%c",0xa1,0,1);
+          printf("%c%s%c",0xa2,"code",0);
+          printf("%c%c%c",0xa1,4,1);
+          printf("%c%d%c",0xa2,cod_touch,0);
+            delay_ms(2);*/
+
+            i2c_start();
+            i2c_write(0x76);
+            i2c_write(0xF0);
+            i2c_stop();
+
+            set_pwm1_duty(cod_touch);
+           var=1;
+      }
+}
+
+
+
+

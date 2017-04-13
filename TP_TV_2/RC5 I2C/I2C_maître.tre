@@ -1,0 +1,15 @@
+ÀÄI2C_maître
+   ÃÄmain  0/91  Ram=0
+   ³  ÃÄ??0??
+   ³  ÃÄinitelcd  0/27  Ram=0
+   ³  ³  ÃÄ@PUTCHAR_1_  0/36  Ram=1
+   ³  ³  ÃÄ@delay_ms1  0/19  Ram=1
+   ³  ³  ÃÄ@PUTCHAR_1_  0/36  Ram=1
+   ³  ³  ÃÄ@PUTCHAR_1_  0/36  Ram=1
+   ³  ³  ÃÄ@delay_ms1  0/19  Ram=1
+   ³  ³  ÃÄ@PUTCHAR_1_  0/36  Ram=1
+   ³  ³  ÃÄ@PUTCHAR_1_  0/36  Ram=1
+   ³  ³  ÀÄ@delay_ms1  0/19  Ram=1
+   ³  ÃÄ@I2C_WRITEU_1_59_60  0/16  Ram=1
+   ³  ÀÄ@I2C_WRITEU_1_59_60  0/16  Ram=1
+   ÀÄext_isr  0/5  Ram=0

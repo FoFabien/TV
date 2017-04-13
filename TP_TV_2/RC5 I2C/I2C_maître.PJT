@@ -1,0 +1,35 @@
+[PROJECT]
+Target=I2C_maître.HEX
+Development_Mode=2
+Processor=0x877F
+ToolSuite=CCS
+
+[Directories]
+Include=
+Library=
+LinkerScript=
+
+[Target Data]
+FileList=I2C_maître.C;
+BuildTool=C-COMPILER
+OptionString=+FM
+AdditionalOptionString=
+BuildRequired=1
+
+[I2C_maître.C]
+Type=4
+Path=
+FileList=
+BuildTool=
+OptionString=
+AdditionalOptionString=
+
+[mru-list]
+1=I:\CRXX1U~R\DZ1CFC~J\_Z78LI~7\TP_TV_2\R5VC5J~1\IJX0GH~T.C
+
+[Windows]
+0=0000 I:\CRXX1U~R\DZ1CFC~J\_Z78LI~7\TP_TV_2\R5VC5J~1\IJX0GH~T.C 0 0 796 451 3 0
+
+[Opened Files]
+1=I:\Classe_2SE\denysmatthieu\électronique\TP_TV_2\RC5 I2C\I2C_maître.C
+2=

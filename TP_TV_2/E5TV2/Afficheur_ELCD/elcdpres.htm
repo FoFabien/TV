@@ -1,0 +1,458 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0048)http://www.lextronic.fr/Comfile/lcd/elcdpres.htm -->
+<HTML><HEAD><TITLE>Afficheurs à commandes série</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1479" name=GENERATOR>
+<META content=none name="Microsoft Border"></HEAD>
+<BODY>
+<TABLE style="TEXT-ALIGN: justify" cellSpacing=0 cellPadding=0 width=579 
+border=0>
+  <TBODY>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575><FONT 
+      face=Tahoma><STRONG>Afficheurs LCD à commandes séries 
+      "ELCD"<BR></STRONG>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      </FONT></TD></TR></TBODY></TABLE>
+<TABLE style="TEXT-ALIGN: justify" cellSpacing=0 cellPadding=3 width=575 
+border=0>
+  <TBODY>
+  <TR>
+    <TD style="TEXT-ALIGN: center" width=575>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD width="52%"><IMG height=217 alt="lcd.jpg (22022 octets)" 
+            src="elcdpres_fichiers/lcd.jpg" width=264></TD>
+          <TD style="TEXT-ALIGN: justify" width="48%"><FONT 
+            face=Tahoma><SMALL>Ces afficheurs LCD "économiques" à comman-des 
+            séries sont dotés de 3 fils de communica-tion (alimentation: +5V / 
+            masse / entrée série). Ils pourront très facilement être pilotés par 
+            un microcontrôleur (68HC11, PIC, AVR...), par un compatible PC ou 
+            encore par un module "PICBASIC" au moyen d'ordres séries au format 8 
+            bits (sans parité avec 1 bit de stop) avec un débit de 19200 ou 4800 
+            bds, sans que vous ayez à vous soucier du mode de pilotage et du 
+            fonctionnement propremement dit des affi-cheurs. La sélection de la 
+            vitesse de communi-cation se fait au moyen d'un pontet de soudure 
+            sur le circuit 
+  imprimé.</SMALL></FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 width=577 border=0>
+  <TBODY>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575>
+      <P align=center><FONT face=Tahoma>&nbsp;&nbsp;&nbsp; 
+  </FONT></P></TD></TR></TBODY></TABLE>
+<TABLE style="TEXT-ALIGN: justify" cellSpacing=0 cellPadding=0 width=577 
+border=0>
+  <TBODY>
+  <TR>
+    <TD style="TEXT-ALIGN: center" width=575>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD style="TEXT-ALIGN: justify" width="57%"><FONT 
+            face=Tahoma><SMALL>Disponibles avec ou sans rétro-éclairage, en 
+            versions:</SMALL> <SMALL>2 x 16, 4 x 16 et 4 x 20 caractères, ces 
+            modèles se com-posent en fait d'un afficheur à pilotage parallèle 
+            standard associé à une petite platine de gestion "série" (raccordée 
+            au dos de l'afficheur). Un potentiomètre assure le ré-glage du 
+            contraste de l'écran. L'ensemble s'alimente sous une tension de +5 
+            V.</SMALL></FONT></TD>
+          <TD style="TEXT-ALIGN: justify" width="43%"><IMG height=116 
+            alt="elcd.jpg (19331 octets)" src="elcdpres_fichiers/elcd.jpg" 
+            width=214 align=right></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575><FONT 
+      face=Tahoma>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <BR>&nbsp; 
+      <BR><SMALL>Le module de commande série dispose de 2 entrées distinctes 
+      selon que vous le piloterez via un signal issue d'un microcontrôleur 
+      (niveau logique +5V) ou d'un signal issue d'un ordinateur (niveau logique 
+      +/- 10 V).</SMALL><BR><SMALL>&nbsp; </SMALL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      <BR>&nbsp; <BR><IMG height=100 alt="aff-app.jpg (9688 octets)" 
+      src="elcdpres_fichiers/aff-app.jpg" width=482>&nbsp; 
+      <BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp; <BR></FONT>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD width="13%">
+            <P align=center><IMG height=42 alt="con-aff.jpg (1954 octets)" 
+            src="elcdpres_fichiers/con-aff.jpg" width=50></P></TD>
+          <TD width="87%"><FONT face=Tahoma><SMALL>Les afficheurs sont livrés 
+            avec un câble 19 cm 3 fils, terminé par un connecteur femelle. Un 
+            connecteur mâle optionnel (CON-AFF) pour circuit imprimé vous 
+            permettra ainsi de raccorder l'afficheur à votre 
+            application.</SMALL></FONT></TD></TR></TBODY></TABLE>
+      <P><FONT face=Tahoma> <BR>&nbsp;&nbsp;&nbsp; <BR><SMALL>L'utilisation de 
+      ces afficheurs est très simple, vous trouverez ci-dessous la liste des 
+      ordres reconnus (ces derniers se résument à l'envoi d'octets succéssifs). 
+      A noter qu'il conviendra de respecter une pause d'une centaines de 
+      milli-secondes après chaque commande entrainant un accès à la mémoire de 
+      l'afficheur - comme la redéfinition de caractères par 
+      exemple).</SMALL><BR><SMALL>&nbsp;&nbsp;&nbsp;&nbsp; 
+      </SMALL><BR><SMALL>&nbsp; </SMALL></FONT></P></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=596>
+      <TABLE cellSpacing=0 cellPadding=0 width="101%" border=0>
+        <TBODY>
+        <TR>
+          <TD width="17%" bgColor=#808080><FONT face=Tahoma 
+            color=#ffffff><STRONG><SMALL>&nbsp; AO</SMALL></STRONG></FONT></TD>
+          <TD width="2%"></TD>
+          <TD width="82%" bgColor=#808080><FONT face=Tahoma 
+            color=#ffffff><SMALL>&nbsp; (Initialisation "soft" de l'afficheur - 
+            commande facultative)</SMALL></FONT></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=596>
+      <TABLE cellSpacing=0 cellPadding=0 width="101%" border=0>
+        <TBODY>
+        <TR>
+          <TD width="17%" bgColor=#c0c0c0><FONT face=Tahoma 
+            color=#000000><STRONG><SMALL>&nbsp; A3&nbsp; 
+            01</SMALL></STRONG></FONT></TD>
+          <TD width="2%"></TD>
+          <TD width="82%" bgColor=#c0c0c0><FONT face=Tahoma 
+            color=#000000><SMALL>&nbsp;&nbsp; Efface le contenu de l'écran et 
+            positionne le curseur à la position 
+            "0,0"</SMALL><BR><SMALL>&nbsp;&nbsp; (en haut à 
+            gauche).</SMALL></FONT></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=596>
+      <TABLE cellSpacing=0 cellPadding=0 width="101%" border=0>
+        <TBODY>
+        <TR>
+          <TD width="17%" bgColor=#808080><FONT face=Tahoma 
+            color=#ffffff><STRONG><SMALL>&nbsp; A1&nbsp; X&nbsp; 
+            Y</SMALL></STRONG></FONT></TD>
+          <TD width="2%"></TD>
+          <TD width="82%" bgColor=#808080><FONT face=Tahoma 
+            color=#ffffff><SMALL>&nbsp;&nbsp; Place le curseur à la position 
+            définie par "X" (0 à 19 suivant le nombre 
+            de</SMALL><BR><SMALL>&nbsp;&nbsp;&nbsp; caractères) et "Y" (0 à 4 
+            suivant le nombre de lignes). Si X=0 et Y=0, 
+            le</SMALL><BR><SMALL>&nbsp;&nbsp;&nbsp; curseur se retrouvera 
+            tout-à-fait en haut à gauche de 
+      l'écran.</SMALL></FONT></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=596>
+      <TABLE cellSpacing=0 cellPadding=0 width="101%" border=0>
+        <TBODY>
+        <TR>
+          <TD width="17%" bgColor=#c0c0c0><FONT face=Tahoma 
+            color=#000000><STRONG><SMALL>&nbsp; A2&nbsp; A B .... 
+            0</SMALL></STRONG></FONT></TD>
+          <TD width="2%"></TD>
+          <TD width="82%" bgColor=#c0c0c0><FONT face=Tahoma 
+            color=#000000><SMALL>&nbsp;&nbsp; Cette suite d'octets permet 
+            d'afficher à l'écran les caractères des codes 
+            ASCII</SMALL><BR><SMALL>&nbsp;&nbsp; correspondant aux octets A, B, 
+            etc... à partir de la position du curseur. 
+            Le</SMALL><BR><SMALL>&nbsp;&nbsp; dernier caractère à afficher doit 
+            automatiquement être suivi de l'octet "0" 
+            afin</SMALL><BR><SMALL>&nbsp;&nbsp; que l'afficheur puisse quitter 
+            la phase d'affichage et attendre à nouveau 
+            une</SMALL><BR><SMALL>&nbsp;&nbsp; nouvelle 
+          commande.</SMALL></FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 width=577 border=0>
+  <TBODY>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=596>
+      <TABLE cellSpacing=0 cellPadding=0 width="101%" border=0>
+        <TBODY>
+        <TR>
+          <TD width="17%" bgColor=#808080><FONT face=Tahoma 
+            color=#ffffff><STRONG><SMALL>&nbsp; A3&nbsp; 
+            0C</SMALL></STRONG></FONT></TD>
+          <TD width="2%"></TD>
+          <TD width="82%" bgColor=#808080><FONT face=Tahoma 
+            color=#ffffff><SMALL>&nbsp;&nbsp; Ces 2 octets désactivent la 
+            présence du curseur sur 
+      l'afficheur.</SMALL></FONT></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=596>
+      <TABLE cellSpacing=0 cellPadding=0 width="101%" border=0>
+        <TBODY>
+        <TR>
+          <TD width="17%" bgColor=#c0c0c0><FONT face=Tahoma 
+            color=#000000><STRONG><SMALL>&nbsp; A3&nbsp; 
+            0E</SMALL></STRONG></FONT></TD>
+          <TD width="2%"></TD>
+          <TD width="82%" bgColor=#c0c0c0><FONT face=Tahoma 
+            color=#000000><SMALL>&nbsp;&nbsp; Ces 2 octets font apparaître le 
+            curseur à l'écran</SMALL></FONT></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=596>
+      <TABLE cellSpacing=0 cellPadding=0 width="101%" border=0>
+        <TBODY>
+        <TR>
+          <TD width="17%" bgColor=#808080><FONT face=Tahoma 
+            color=#ffffff><STRONG><SMALL>&nbsp; A4 </SMALL><BR><SMALL>&nbsp; 
+            CARACT</SMALL><BR>&nbsp; <SMALL>C1, C2, C3, 
+            </SMALL><BR><SMALL>&nbsp; C4, C5, C6</SMALL><BR><SMALL>&nbsp; C7, 
+            C8</SMALL></STRONG></FONT></TD>
+          <TD width="2%"></TD>
+          <TD width="82%" bgColor=#808080><FONT face=Tahoma 
+            color=#ffffff><SMALL>&nbsp;&nbsp; Cette suite de 10 octets permet de 
+            redéfinir l'apparence de certains 
+            caractè-</SMALL><BR><SMALL>&nbsp;&nbsp;&nbsp; res et de les afficher 
+            à l'écran. Il vous sera ainsi possible de 
+            "redessiner"</SMALL><BR><SMALL>&nbsp;&nbsp;&nbsp; totalement les 
+            caractères correspondants aux emplacements des 
+            codes</SMALL><BR><SMALL>&nbsp;&nbsp;&nbsp; "ASCII" 8 à 15 de 
+            l'afficheur. Chaque caractère est représenté sur 
+            une</SMALL><BR><SMALL>&nbsp;&nbsp;&nbsp; matrice de points composée 
+            de 8 lignes et de 5 colonnes. Lors de 
+            la</SMALL><BR><SMALL>&nbsp;&nbsp;&nbsp; redéfinition, vous devrez 
+            indiquer quels seront les points de chacune des 
+            8</SMALL><BR><SMALL>&nbsp;&nbsp;&nbsp; lignes qui devront être 
+            allumées. Cette commande s'exécute donc 
+            en</SMALL><BR><SMALL>&nbsp;&nbsp;&nbsp; commençant par l'octet 
+            <STRONG>A4</STRONG>, suivi du code "ASCII" du caractère à 
+            redéfinir</SMALL><BR><SMALL>&nbsp;&nbsp;&nbsp; (8 à 15) et de la 
+            description des 8 lignes de caractère. Après son 
+            exécution,</SMALL><BR><SMALL>&nbsp;&nbsp;&nbsp; le caractère 
+            s'affiche directement.</SMALL></FONT></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=596>
+      <TABLE cellSpacing=0 cellPadding=0 width="101%" border=0>
+        <TBODY>
+        <TR>
+          <TD width="17%" bgColor=#c0c0c0><FONT face=Tahoma 
+            color=#000000><STRONG><SMALL>&nbsp; A5 </SMALL><BR><SMALL>&nbsp; 
+            CARACT</SMALL><BR>&nbsp; <SMALL>C1, C2, C3, 
+            </SMALL><BR><SMALL>&nbsp; C4, C5, C6</SMALL><BR><SMALL>&nbsp; C7, 
+            C8</SMALL></STRONG></FONT></TD>
+          <TD width="2%"></TD>
+          <TD width="82%" bgColor=#c0c0c0><FONT face=Tahoma 
+            color=#000000><SMALL>&nbsp;&nbsp; Cette instruction s'utilise 
+            exactement comme la ligne ci-dessus, mise à 
+            part</SMALL><BR><SMALL>&nbsp;&nbsp; que le caractère bien que 
+            modifié, ne s'affiche pas à l'écran. Pour le 
+            visualiser,</SMALL><BR><SMALL>&nbsp;&nbsp; il vous faudra avoir 
+            recours au code "A2", suivi du code "ASCII" du 
+            caractère</SMALL><BR><SMALL>&nbsp;&nbsp; modifié, suivi de l'octet 
+            "0" ('voir indication du tableau du code 
+        A2).</SMALL></FONT></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575>
+      <P align=center><FONT face=Tahoma>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </FONT></P></TD></TR></TBODY></TABLE>
+<TABLE style="TEXT-ALIGN: justify" cellSpacing=0 cellPadding=3 width=575 
+border=0>
+  <TBODY>
+  <TR>
+    <TD style="TEXT-ALIGN: center" width=575>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD width="16%"><IMG height=85 alt="redef.jpg (6671 octets)" 
+            src="elcdpres_fichiers/redef.jpg" width=65 align=left></TD>
+          <TD style="TEXT-ALIGN: justify" width="84%"><FONT 
+            face=Tahoma><SMALL>A titre d'exemple, la séquence: A4&nbsp; 08&nbsp; 
+            0E&nbsp; 19&nbsp; 10&nbsp; 1E&nbsp; 10&nbsp; 10&nbsp; 19 &nbsp; 
+            0E</SMALL><BR><SMALL>permet de redéfinir le caractère situé à 
+            l'emplacement mémoire "08" afin que ce</SMALL><BR><SMALL>dernier 
+            affiche le sigle "euro" sur l'écran du 
+        LCD.</SMALL></FONT></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575>
+      <P align=left><FONT face=Tahoma>&nbsp;&nbsp;&nbsp; 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp; <BR><SMALL>La notice 
+      d'utilisation ci-dessous (en anglais) reprend en détail toutes les 
+      possibilités des afficheurs avec en plus des exemples de 
+      pilotage:</SMALL><BR><BR><SMALL>- Par les modules 
+      PICBASIC.</SMALL><BR><SMALL>- Par un microcontrôleur PIC (code source en 
+      assembleur).</SMALL><BR><SMALL>- Par un microcontrôleur PIC (code source 
+      en langage 
+      "C").</SMALL><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      </FONT></P></TD></TR></TBODY></TABLE>
+<TABLE style="TEXT-ALIGN: justify" cellSpacing=0 cellPadding=3 width=575 
+border=0>
+  <TBODY>
+  <TR>
+    <TD style="TEXT-ALIGN: center" width=575>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD width="10%"><IMG height=32 alt="picto_pdf.gif (372 octets)" 
+            src="elcdpres_fichiers/picto_pdf.gif" width=32></TD>
+          <TD style="TEXT-ALIGN: justify" width="90%"><A 
+            href="http://www.lextronic.fr/Comfile/lcd/elcd_e.pdf" 
+            target=_blank><FONT face=Tahoma color=#0000ff><SMALL>Notice 
+            d'utilisation des afficheurs série 
+        "ELCD"</SMALL></FONT></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE style="TEXT-ALIGN: justify" cellSpacing=0 cellPadding=3 width=575 
+border=0>
+  <TBODY>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=575>
+      <P align=left><FONT face=Tahoma>&nbsp; &nbsp; &nbsp;&nbsp; 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp; 
+      <BR>&nbsp;&nbsp;&nbsp; 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <BR>&nbsp; 
+      </FONT></P></TD></TR></TBODY></TABLE>
+<TABLE style="BORDER-COLLAPSE: collapse" borderColor=#111111 cellSpacing=0 
+cellPadding=3 width=585 border=0>
+  <TBODY>
+  <TR>
+    <TD style="TEXT-ALIGN: justify"><FONT face=Tahoma><FONT 
+      color=#ff8000><STRONG><SPAN lang=fr>Kits de montage universels 
+      optionnels</SPAN></STRONG></FONT><BR>&nbsp;</FONT></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify">
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD width="44%"><FONT face=Tahoma><IMG height=128 
+            alt="overlays.jpg (18076 octets)" 
+            src="elcdpres_fichiers/overlays.jpg" width=235></FONT></TD>
+          <TD width="56%">
+            <P style="TEXT-ALIGN: justify"><SMALL><FONT face=Tahoma>Ces "kits" 
+            de montage universels permettent d'optenir une finition 
+            "impeccable". Ils se composent d'une face avant adhésive, d'un 
+            gabarie de perçage, de 4 vis à tête plate, des écrous, rondelles et 
+            entretoises nécessaires ainsi que d'une notice (en Anglais) 
+            précisant la méthode de montage. La face avant est (sauf 
+            spécification) noire par défaut. 
+      </FONT></SMALL></P></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD><FONT face=Tahoma>&nbsp;&nbsp;&nbsp;&nbsp; </FONT></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=591>
+      <HR SIZE=1>
+    </TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=605>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD width="18%" bgColor=#808080><FONT face=Tahoma color=#ffffff 
+            size=2><STRONG>&nbsp; <SPAN lang=fr>MK1621</SPAN></STRONG></FONT></TD>
+          <TD width="50%"><FONT face=Tahoma size=2>&nbsp;<SPAN lang=fr> 
+            </SPAN>Kit pour afficheur 2 x 16 caractères</FONT></TD>
+          <TD width="16%" bgColor=#c0c0c0>
+            <P align=center><FONT face=Tahoma size=2><STRONG><SPAN 
+            lang=fr>6,27</SPAN> € HT</STRONG></FONT></P></TD>
+          <TD width="16%" bgColor=#e6e6e3>
+            <P align=center><FONT face=Tahoma size=2><STRONG><SPAN 
+            lang=fr>7,50</SPAN> € 
+  TTC</STRONG></FONT></P></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=605>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD width="18%" bgColor=#808080><FONT face=Tahoma color=#ffffff 
+            size=2><STRONG>&nbsp; <SPAN lang=fr>MK2021</SPAN></STRONG></FONT></TD>
+          <TD width="50%"><FONT face=Tahoma size=2>&nbsp;<SPAN lang=fr> 
+            </SPAN>Kit pour afficheur 2 x 20 caractères</FONT></TD>
+          <TD width="16%" bgColor=#c0c0c0>
+            <P align=center><FONT face=Tahoma size=2><STRONG><SPAN 
+            lang=fr>7,94</SPAN> € HT</STRONG></FONT></P></TD>
+          <TD width="16%" bgColor=#e6e6e3>
+            <P align=center><FONT face=Tahoma size=2><STRONG><SPAN 
+            lang=fr>9,50</SPAN> € 
+  TTC</STRONG></FONT></P></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=605>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD width="18%" bgColor=#808080><FONT face=Tahoma color=#ffffff 
+            size=2><STRONG>&nbsp; <SPAN lang=fr>MK2041</SPAN></STRONG></FONT></TD>
+          <TD width="50%"><FONT face=Tahoma size=2>&nbsp;<SPAN lang=fr> 
+            </SPAN>Kit pour afficheur 4 x 20 caractères</FONT></TD>
+          <TD width="16%" bgColor=#c0c0c0>
+            <P align=center><FONT face=Tahoma size=2><STRONG><SPAN 
+            lang=fr>9,61</SPAN> € HT</STRONG></FONT></P></TD>
+          <TD width="16%" bgColor=#e6e6e3>
+            <P align=center><FONT face=Tahoma size=2><STRONG><SPAN 
+            lang=fr>11,50</SPAN> € 
+  TTC</STRONG></FONT></P></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD style="TEXT-ALIGN: justify" width=591>
+      <HR SIZE=1>
+    </TD></TR></TBODY></TABLE></BODY></HTML>

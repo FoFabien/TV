@@ -1,0 +1,116 @@
+
+**** 10/08/08 11:08:23 ******* PSpice 10.0.0 (Jan 2003) ******* ID# 1111111111 
+ ** Profile: "SCHEMATIC1-simulation"  [ I:\Classe_2SE\denysmatthieu\TP\TP3-PSpiceFiles\SCHEMATIC1\simulation.sim ] 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "simulation.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\OrCAD\OrCAD_10.0\tools\PSpice\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.AC DEC 30 100 100Meg
+.PROBE V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source TP3
+X_U2A         0 N00187 N00257 N02719 0 awblm324 PARAMS: AVOL=1E+5 VOS=2E-3
++  GBW=1E+6 IBOS=5E-9 IB=45E-9 CMRR=17782.8 PSRR=1E+5 SR=0.5E+6 ISOURCE=40E-3
++  VPDIF=1
+R_R1         N00195 N00257  100k  
+R_R2         N00195 N00187  100k  
+R_R3         0 N00195  100k  
+V_V3         N00325 0 DC 0Vdc AC 1Vac 
+C_C1         N00187 N00257  2n   
+C_C2         N00325 N00195  0.1n   
+V_V2         N02719 0 5
+
+**** RESUMING simulation.cir ****
+.END
+
+**** 10/08/08 11:08:23 ******* PSpice 10.0.0 (Jan 2003) ******* ID# 1111111111 
+ ** Profile: "SCHEMATIC1-simulation"  [ I:\Classe_2SE\denysmatthieu\TP\TP3-PSpiceFiles\SCHEMATIC1\simulation.sim ] 
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N00187)     .0184 (N00195)     .0152 (N00257)     .0272 (N00325)    0.0000     
+
+(N02719)    5.0000 (X_U2A.xinstlm324.1)     .0301                               
+
+(X_U2A.xinstlm324.2)     .6051        (X_U2A.xinstlm324.4)     .0503            
+
+(X_U2A.xinstlm324.5)     .5980        (X_U2A.xinstlm324.6)-50.00E-06            
+
+(X_U2A.xinstlm324.7) 1000.0000        (X_U2A.xinstlm324.9)    3.1034            
+
+(X_U2A.xinstlm324.10)     .0380       (X_U2A.xinstlm324.11)    -.9298           
+
+(X_U2A.xinstlm324.12)    0.0000       (X_U2A.xinstlm324.14)    2.4999           
+
+(X_U2A.xinstlm324.15)    2.4999       (X_U2A.xinstlm324.16)     .9298           
+
+(X_U2A.xinstlm324.17)     .6156       (X_U2A.xinstlm324.18)    2.8790           
+
+(X_U2A.xinstlm324.20) 40.03E-06       (X_U2A.xinstlm324.21)    -.5769           
+
+(X_U2A.xinstlm324.22)     .0015       (X_U2A.xinstlm324.24) 1000.8000           
+
+(X_U2A.xinstlm324.25)     .0380       (X_U2A.xinstlm324.26)     .7659           
+
+(X_U2A.xinstlm324.27)    -.6899       
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V3         0.000E+00
+    V_V2        -1.610E-04
+    X_U2A.xinstlm324.VFI7   4.098E+01
+    X_U2A.xinstlm324.VFI6   9.398E-13
+    X_U2A.xinstlm324.VREF   1.487E+00
+
+    TOTAL POWER DISSIPATION  -1.49E+03  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 10/08/08 11:08:23 ******* PSpice 10.0.0 (Jan 2003) ******* ID# 1111111111 
+ ** Profile: "SCHEMATIC1-simulation"  [ I:\Classe_2SE\denysmatthieu\TP\TP3-PSpiceFiles\SCHEMATIC1\simulation.sim ] 
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .38
+

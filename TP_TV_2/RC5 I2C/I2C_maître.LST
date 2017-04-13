@@ -1,0 +1,398 @@
+CCS PCM C Compiler, Version 3.180, 21719
+
+               Filename: I:\Classe_2SE\denysmatthieu\électronique\TP_TV_2\RC5 I2C\I2C_maître.LST
+
+               ROM used: 245 (3%)
+                         Largest free fragment is 2048
+               RAM used: 34 (21%) at main() level
+                         35 (22%) worst case
+               Stack:    3 worst case (2 in main + 1 for interrupts)
+
+*
+0000:  NOP
+0001:  MOVLW  00
+0002:  MOVWF  0A
+0003:  GOTO   09A
+0004:  MOVWF  7F
+0005:  SWAPF  03,W
+0006:  CLRF   03
+0007:  MOVWF  21
+0008:  MOVF   0A,W
+0009:  MOVWF  20
+000A:  CLRF   0A
+000B:  MOVF   04,W
+000C:  MOVWF  22
+000D:  MOVF   77,W
+000E:  MOVWF  23
+000F:  MOVF   78,W
+0010:  MOVWF  24
+0011:  MOVF   79,W
+0012:  MOVWF  25
+0013:  MOVF   7A,W
+0014:  MOVWF  26
+0015:  MOVF   7B,W
+0016:  MOVWF  27
+0017:  BCF    03.7
+0018:  BCF    03.5
+0019:  BTFSS  0B.4
+001A:  GOTO   01D
+001B:  BTFSC  0B.1
+001C:  GOTO   030
+001D:  MOVF   22,W
+001E:  MOVWF  04
+001F:  MOVF   23,W
+0020:  MOVWF  77
+0021:  MOVF   24,W
+0022:  MOVWF  78
+0023:  MOVF   25,W
+0024:  MOVWF  79
+0025:  MOVF   26,W
+0026:  MOVWF  7A
+0027:  MOVF   27,W
+0028:  MOVWF  7B
+0029:  MOVF   20,W
+002A:  MOVWF  0A
+002B:  SWAPF  21,W
+002C:  MOVWF  03
+002D:  SWAPF  7F,F
+002E:  SWAPF  7F,W
+002F:  RETFIE
+0030:  BCF    0A.3
+0031:  BCF    0A.4
+0032:  GOTO   033
+....................    
+....................   
+.................... #include <16F877.h> 
+....................  //////// Standard Header file for the PIC16F877 device ////////////////  
+.................... #device PIC16F877  
+.................... #list  
+....................  
+.................... #device ICD=TRUE  
+.................... #fuses HS,NOLVP,NOWDT,PUT  
+.................... //#include <recept_RC5.h>  
+.................... #use delay(clock=20000000)  
+*
+005C:  MOVLW  3D
+005D:  MOVWF  04
+005E:  MOVF   00,W
+005F:  BTFSC  03.2
+0060:  GOTO   06E
+0061:  MOVLW  06
+0062:  MOVWF  78
+0063:  CLRF   77
+0064:  DECFSZ 77,F
+0065:  GOTO   064
+0066:  DECFSZ 78,F
+0067:  GOTO   063
+0068:  MOVLW  7B
+0069:  MOVWF  77
+006A:  DECFSZ 77,F
+006B:  GOTO   06A
+006C:  DECFSZ 00,F
+006D:  GOTO   061
+006E:  RETLW  00
+....................   
+.................... #define led_verte PIN_A5  
+.................... #define led_rouge PIN_B5  
+.................... #define led_jaune PIN_B4  
+.................... #define bouton PIN_A4  
+....................   
+....................   
+....................   
+....................   
+.................... //declaration de variables  
+.................... int1 var_test,nl,x,y,testbit;  
+.................... int var,i,n,typ,cod_touch;  
+....................   
+....................   
+.................... int TAB[14];  
+....................   
+.................... //declaration de la fonction interruption  
+.................... #int_ext  
+.................... void ext_isr()  
+.................... {  
+.................... var=0;  
+*
+0033:  CLRF   29
+.................... }  
+.................... #use i2c (master,sda=pin_c4,scl=pin_c3,slow,force_hw)  
+*
+008A:  BCF    14.7
+008B:  BCF    0C.3
+008C:  MOVF   3D,W
+008D:  MOVWF  13
+008E:  MOVLW  02
+008F:  BTFSC  14.7
+0090:  GOTO   098
+0091:  BTFSS  0C.3
+0092:  GOTO   091
+0093:  MOVLW  00
+0094:  BSF    03.5
+0095:  BTFSC  11.6
+0096:  MOVLW  01
+0097:  BCF    03.5
+0098:  MOVWF  78
+0099:  RETLW  00
+*
+00A0:  MOVLW  FF
+00A1:  BCF    03.5
+00A2:  MOVWF  3C
+00A3:  BSF    3C.3
+00A4:  MOVF   3C,W
+00A5:  BSF    03.5
+00A6:  MOVWF  07
+00A7:  BCF    03.5
+00A8:  BSF    3C.4
+00A9:  MOVF   3C,W
+00AA:  BSF    03.5
+00AB:  MOVWF  07
+.................... #use rs232 (baud = 19200 , xmit = PIN_D6 , rcv = PIN_D7)  
+*
+0038:  BSF    03.5
+0039:  BCF    08.6
+003A:  BCF    03.5
+003B:  BCF    08.6
+003C:  MOVLW  08
+003D:  MOVWF  78
+003E:  NOP
+003F:  NOP
+0040:  NOP
+0041:  BSF    78.7
+0042:  GOTO   052
+0043:  BCF    78.7
+0044:  RRF    3D,F
+0045:  BTFSC  03.0
+0046:  BSF    08.6
+0047:  BTFSS  03.0
+0048:  BCF    08.6
+0049:  BSF    78.6
+004A:  GOTO   052
+004B:  BCF    78.6
+004C:  DECFSZ 78,F
+004D:  GOTO   044
+004E:  NOP
+004F:  NOP
+0050:  NOP
+0051:  BSF    08.6
+0052:  MOVLW  50
+0053:  MOVWF  04
+0054:  DECFSZ 04,F
+0055:  GOTO   054
+0056:  NOP
+0057:  BTFSC  78.7
+0058:  GOTO   043
+0059:  BTFSC  78.6
+005A:  GOTO   04B
+005B:  RETLW  00
+....................   
+*
+0034:  BCF    0B.1
+0035:  BCF    0A.3
+0036:  BCF    0A.4
+0037:  GOTO   01D
+.................... void initelcd()  
+.................... {  
+.................... printf("%c",0xa0);  
+*
+006F:  MOVLW  A0
+0070:  MOVWF  3D
+0071:  CALL   038
+....................           delay_ms(40);  
+0072:  MOVLW  28
+0073:  MOVWF  3D
+0074:  CALL   05C
+....................   
+....................          printf("%c%c",0xa3,0xa1);  
+0075:  MOVLW  A3
+0076:  MOVWF  3D
+0077:  CALL   038
+0078:  MOVLW  A1
+0079:  MOVWF  3D
+007A:  CALL   038
+....................           delay_ms(20);  
+007B:  MOVLW  14
+007C:  MOVWF  3D
+007D:  CALL   05C
+....................           printf("%c%c",0xa3,0x0C);  
+007E:  MOVLW  A3
+007F:  MOVWF  3D
+0080:  CALL   038
+0081:  MOVLW  0C
+0082:  MOVWF  3D
+0083:  CALL   038
+....................           delay_ms(20);  
+0084:  MOVLW  14
+0085:  MOVWF  3D
+0086:  CALL   05C
+.................... }  
+0087:  BCF    0A.3
+0088:  BCF    0A.4
+0089:  GOTO   0BC (RETURN)
+....................   
+....................   
+....................   
+....................   
+.................... //debut du programme  
+.................... main()  
+.................... {  
+*
+009A:  CLRF   04
+009B:  MOVLW  1F
+009C:  ANDWF  03,F
+009D:  MOVLW  06
+009E:  BSF    03.5
+009F:  MOVWF  1F
+*
+00AC:  MOVLW  31
+00AD:  MOVWF  13
+00AE:  MOVLW  28
+00AF:  BCF    03.5
+00B0:  MOVWF  14
+00B1:  BSF    03.5
+00B2:  BSF    14.7
+00B3:  BCF    14.6
+00B4:  BCF    08.6
+00B5:  BCF    03.5
+00B6:  BSF    08.6
+....................       n=0;  
+00B7:  CLRF   2B
+....................       i=0;  
+00B8:  CLRF   2A
+....................       var=1;  
+00B9:  MOVLW  01
+00BA:  MOVWF  29
+....................       initelcd();  
+00BB:  GOTO   06F
+....................   
+....................       output_low(led_verte);  
+00BC:  BSF    03.5
+00BD:  BCF    05.5
+00BE:  BCF    03.5
+00BF:  BCF    05.5
+....................       //enable_interrupts(global); //autorise les interruptions  
+....................       //enable_interrupts(int_ext); //demasque EXT INT  
+....................       //ext_int_edge(H_to_L); //front descendant de EXT INT  
+....................       //set_tris_c(0x00);  
+....................       setup_ccp1(CCP_PWM);  
+00C0:  BCF    3C.2
+00C1:  MOVF   3C,W
+00C2:  BSF    03.5
+00C3:  MOVWF  07
+00C4:  BCF    03.5
+00C5:  BCF    07.2
+00C6:  MOVLW  0C
+00C7:  MOVWF  17
+....................       setup_timer_2(T2_DIV_BY_16,10,1);  
+00C8:  MOVLW  00
+00C9:  MOVWF  78
+00CA:  IORLW  06
+00CB:  MOVWF  12
+00CC:  MOVLW  0A
+00CD:  BSF    03.5
+00CE:  MOVWF  12
+....................       while(true) //boucle infinie  
+....................       {  
+....................            /* while(var==1);  
+....................             output_low(led_rouge);  
+....................             nl=1;  
+....................             n=0;  
+....................             TAB[0]=nl;  
+....................             delay_us(440);  
+....................             delay_us(889);  
+....................   
+....................             var_test=1;  
+....................             while(n++<13)  
+....................              {  
+....................             x=input(pin_b1);  
+....................             //x=0;  
+....................             delay_us(880);  
+....................             y=input(pin_b1);  
+....................             //y=1;  
+....................             //testbit=recept_RC5(var_test,x,y);  
+....................             if(testbit==1)  
+....................             TAB[n]= nl;  
+....................             else  
+....................               {  
+....................               nl=!nl;  
+....................               TAB[n]= nl;  
+....................               var_test=!var_test;  
+....................               }  
+....................             delay_us(880);  
+....................              }  
+....................              i=0;  
+....................              n=0;  
+....................             output_high(led_rouge);  
+....................             typ=TAB[3]*16+TAB[4]*8+TAB[5]*4+TAB[6]*2+TAB[7];  
+....................             cod_touch=TAB[8]*32+TAB[9]*16+TAB[10]*8+TAB[11]*4+TAB[12]*2+TAB[13];  
+....................   
+....................           printf("%c%c%c",0xa1,0,0);  
+....................           printf("%c%s%c",0xa2,"        ",0);  
+....................           printf("%c%c%c",0xa1,0,1);  
+....................           printf("%c%s%c",0xa2,"        ",0);  
+....................   
+....................   
+....................           printf("%c%c%c",0xa1,0,0);  
+....................           printf("%c%s%c",0xa2,"type",0);  
+....................           printf("%c%c%c",0xa1,4,0);  
+....................           printf("%c%d%c",0xa2,typ,0);  
+....................           printf("%c%c%c",0xa1,0,1);  
+....................           printf("%c%s%c",0xa2,"code",0);  
+....................           printf("%c%c%c",0xa1,4,1);  
+....................           printf("%c%d%c",0xa2,cod_touch,0);  
+....................             delay_ms(2);*/  
+....................   
+....................             i2c_start();  
+00CF:  BCF    03.5
+00D0:  BCF    0D.3
+00D1:  BCF    14.7
+00D2:  BSF    03.5
+00D3:  BSF    11.0
+00D4:  BCF    03.5
+00D5:  BTFSS  0D.3
+00D6:  GOTO   0D9
+00D7:  BSF    03.5
+00D8:  GOTO   0CF
+00D9:  BTFSS  14.7
+00DA:  GOTO   0DD
+00DB:  BSF    03.5
+00DC:  GOTO   0CF
+00DD:  BSF    03.5
+00DE:  BTFSS  11.0
+00DF:  GOTO   0E2
+00E0:  BCF    03.5
+00E1:  GOTO   0DD
+....................             i2c_write(0x76);  
+00E2:  MOVLW  76
+00E3:  BCF    03.5
+00E4:  MOVWF  3D
+00E5:  CALL   08A
+....................             i2c_write(0xF0);  
+00E6:  MOVLW  F0
+00E7:  MOVWF  3D
+00E8:  CALL   08A
+....................             i2c_stop();  
+00E9:  BSF    03.5
+00EA:  BSF    11.2
+00EB:  BTFSC  11.2
+00EC:  GOTO   0EB
+....................   
+....................             set_pwm1_duty(cod_touch);  
+00ED:  BCF    03.5
+00EE:  MOVF   2D,W
+00EF:  MOVWF  15
+....................            var=1;  
+00F0:  MOVLW  01
+00F1:  MOVWF  29
+....................       }  
+00F2:  BSF    03.5
+00F3:  GOTO   0CF
+.................... }  
+....................   
+....................   
+....................   
+....................   
+....................  
+00F4:  GOTO   0F4
+
+Configuration Fuses:
+   Word  1: 3732   HS NOWDT PUT NOPROTECT NOBROWNOUT NOLVP NOCPD NOWRT DEBUG
